@@ -1,0 +1,12 @@
+{
+  "restartable": "rs",
+  "ignore": [".git", "node_modules/", "dist/", "coverage/"],
+  "watch": ["src/"],
+  "execMap": {
+    "ts": "node -r dotenv/config -r ts-node/register"
+  },
+  "env": {
+    "DEBUG": "valiu*"
+  },
+  "ext": "js,json,ts"
+}
