@@ -1,18 +1,33 @@
-import * as bodyParser from 'body-parser';
 import {Server} from '@overnightjs/core';
-import {ClientsController} from './controllers/clients';
+import express from 'express';
+import mongoose from 'mongoose';
+import {CountriesController} from './controllers/countries';
+import {UsersController} from './controllers/users';
 
-export class SampleServer extends Server {
+export class AggMonitor extends Server {
   constructor() {
     super(process.env.NODE_ENV === 'development'); // setting showLogs to true
-    this.app.use(bodyParser.json());
-    this.app.use(bodyParser.urlencoded({extended: true}));
+    this.app.use(express.json());
+    this.app.use(express.urlencoded({extended: true}));
     this.setupControllers();
+    this.setupDatabase();
   }
 
   private setupControllers(): void {
-    const clientsController = new ClientsController();
-    super.addControllers([clientsController]);
+    super.addControllers([new CountriesController(), new UsersController()]);
+  }
+
+  private async setupDatabase(): Promise<void> {
+    const mongoUri =
+      process.env.MONGO_URI || 'mongodb://localhost:27017/agg-monitor-staging';
+    try {
+      await mongoose.connect(mongoUri, {
+        useNewUrlParser: true,
+        useUnifiedTopology: true,
+      });
+    } catch (err) {
+      console.log(err);
+    }
   }
 
   public start(port: number): void {

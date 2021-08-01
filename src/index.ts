@@ -1,24 +1,7 @@
-console.log('Try npm run lint/fix!');
+import {AggMonitor} from './server';
+import {User} from './models/users';
 
-const longString =
-  'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer ut aliquet diam.';
+const aggMonitorServer = new AggMonitor();
+const port: number = parseInt(process.env.PORT || '2345');
 
-const trailing = 'Semicolon';
-
-const why = 'am I tabbed?';
-
-export function doSomeStuff(
-  withThis: string,
-  andThat: string,
-  andThose: string[]
-) {
-  //function on one line
-  if (!andThose.length) {
-    return false;
-  }
-  console.log(withThis);
-  console.log(andThat);
-  console.dir(andThose);
-  return;
-}
-// TODO: more examples
+aggMonitorServer.start(port);

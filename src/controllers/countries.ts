@@ -6,8 +6,8 @@ const debug = Debug('valiu:testing');
 
 @Controller('countries')
 export class CountriesController {
-  @Get('merchant-accounts')
-  private async get(req: Request, res: Response) {
+  @Get('')
+  private get(req: Request, res: Response) {
     try {
       return res.status(200).json({
         data: 'Hello',
