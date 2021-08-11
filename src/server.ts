@@ -1,6 +1,7 @@
 import {Server} from '@overnightjs/core';
 import express from 'express';
 import mongoose from 'mongoose';
+import {ClientsController} from './controllers/clients';
 import {CountriesController} from './controllers/countries';
 import {UsersController} from './controllers/users';
 
@@ -14,7 +15,11 @@ export class AggMonitor extends Server {
   }
 
   private setupControllers(): void {
-    super.addControllers([new CountriesController(), new UsersController()]);
+    super.addControllers([
+      new CountriesController(),
+      new UsersController(),
+      new ClientsController(),
+    ]);
   }
 
   private async setupDatabase(): Promise<void> {
