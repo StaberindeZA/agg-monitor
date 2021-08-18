@@ -20,9 +20,13 @@ export class ClientsController {
     debug('Start - Create Client');
     const {body} = req;
     const client = new Client(body);
-    await client.save();
-    debug(`End - Successfully created client ${client.name}`);
-    return res.json(client);
+    try {
+      await client.save();
+      debug(`End - Successfully created client ${client.name}`);
+      return res.json(client);
+    } catch (err) {
+      return res.send(err);
+    }
   }
 
   @Delete(':id')

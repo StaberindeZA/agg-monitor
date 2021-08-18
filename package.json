@@ -16,6 +16,7 @@
     "compile": "tsc",
     "fix": "gts fix",
     "dev": "nodemon --config nodemon.json src/index.ts",
+    "testStuff": "ts-node src/utils/test.ts",
     "prepare": "npm run compile",
     "pretest": "npm run compile",
     "posttest": "npm run lint"
@@ -38,6 +39,7 @@
     "debug": "^4.3.2",
     "express": "^4.17.1",
     "i18n-iso-countries": "^6.8.0",
-    "mongoose": "^5.13.5"
+    "mongoose": "^5.13.5",
+    "uuidv4": "^6.2.12"
   }
 }
