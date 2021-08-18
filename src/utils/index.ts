@@ -5,26 +5,15 @@ function generateValidSecretInteger(): number {
   const whileBreak = true;
   while (whileBreak) {
     const value = Math.floor(Math.random() * (max - min + 1) + min);
-    console.log('Heres the random Int', value);
     if (!excludeNumbers.includes(value)) return value;
   }
   return min;
 }
 
-export function generateRandomString(length: number) {
-  const random = Array.from({length: 5}, _ => generateValidSecretInteger());
-  console.log(random);
-  // const randomString = random
-  //   .map((_: any) => {
-  //     const theInt = generateValidSecretInteger();
-  //     console.log(theInt);
-  //     return String.fromCharCode(generateValidSecretInteger());
-  //   })
-  //   .join('');
-  const randomString = random.map(char => String.fromCharCode(char)).join('');
-  console.log('This is the random', randomString);
-  return randomString;
-}
+export const generateRandomString = (length: number) =>
+  Array.from({length}, _ => generateValidSecretInteger())
+    .map(char => String.fromCharCode(char))
+    .join('');
 
 export function validBase64(value: string) {
   const base64Regexp = new RegExp('/A-Za-z0-9+/=/');

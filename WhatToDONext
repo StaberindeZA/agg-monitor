@@ -1,0 +1,20 @@
+1. Add passport
+    1. User login for Admin users.
+    2. Client login for
+
+
+// Authorization
+Clients should have access too
+- Countries
+    - List
+
+Users
+* SuperAdmin
+    - Users
+    - Clients
+    - Countries
+- Admin
+    - Users
+    - Countries
+- Assistant
+    - Countries
