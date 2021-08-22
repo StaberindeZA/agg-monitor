@@ -1,7 +1,10 @@
 1. Add passport
     1. User login for Admin users.
-    2. Client login for
-
+    1. Client login for
+1. Add proper error handling
+    1. Catch all errors thrown.
+    1. Make sure that the err.stack is form the error, not from the error handler.
+    1. Add request-id to each action. To help with logging.
 
 // Authorization
 Clients should have access too
