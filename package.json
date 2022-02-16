@@ -19,7 +19,8 @@
     "testStuff": "ts-node src/utils/test.ts",
     "prepare": "npm run compile",
     "pretest": "npm run compile",
-    "posttest": "npm run lint"
+    "posttest": "npm run lint",
+    "load-test-data": "ts-node src/utils/loadTestData"
   },
   "devDependencies": {
     "@types/bcrypt": "^5.0.0",

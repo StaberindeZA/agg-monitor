@@ -5,6 +5,7 @@ node_modules/
 dist/
 tmp/
 temp/
+build/
 .chart/Chart.lock
 .nvmrc
 .DS_Store

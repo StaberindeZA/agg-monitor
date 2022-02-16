@@ -21,7 +21,7 @@ export class CountriesController {
     const {body} = req;
     const country = new Country(body);
     await country.save();
-    debug(`End - Successfully created country ${country.countryName}`);
+    debug(`End - Successfully created country ${country.name}`);
     return res.json(country);
   }
 
